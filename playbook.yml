@@ -1,11 +1,11 @@
 ---
-- name: Instalacao do LAMP
+- name: Verificar LAMP
   hosts: prod
   tasks:
-  - name: Instalando o LAMP
-    roles:
-     - apache2
-     - mysql
-     - php-fpm
-    vars:
-      mysql_root_password: "mypass"
+  - name: Verificar Apache
+    service: name=apache2 state=started
+  - name: Verificar PHP
+    service: name=php state=started
+  - name: Verificar MySQL
+    service: name=mysql state=started
+

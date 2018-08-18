@@ -1,0 +1,11 @@
+---
+- name: Instalacao do LAMP
+  hosts: prod
+  tasks:
+  - name: Instalando o LAMP
+    roles:
+     - apache2
+     - mysql
+     - php-fpm
+    vars:
+      mysql_root_password: "mypass"
